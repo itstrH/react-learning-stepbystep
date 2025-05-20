@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
+import demoPic from "../src/assets/img/rating.png";
 
 
 let today = new Date().toLocaleDateString();
@@ -31,10 +32,32 @@ function Header() {
   );
 }
 
+const name = "Huy"
+const isLoggedIn = true;
+let person = {
+  name: "John",
+  age: 38,
+}
+
+function DynamicValue() {
+  return (
+    <>
+      <h2>Chào {name}</h2>
+      <p>{isLoggedIn ? "Bạn đã đăng nhập" : "Đăng nhập đê"}</p>
+      <p>Name: {person.name}, Age: {person.age}</p>
+      <img src={demoPic} alt="" />
+    </>
+  )
+}
+
+
+
+
 function App() {
   return (
     <>
       <Header />
+      <DynamicValue />
     </>
   );
 }
