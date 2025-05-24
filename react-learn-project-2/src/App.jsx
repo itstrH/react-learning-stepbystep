@@ -46,6 +46,7 @@ function DynamicValue() {
       <p>{isLoggedIn ? "Bạn đã đăng nhập" : "Đăng nhập đê"}</p>
       <p>Name: {person.name}, Age: {person.age}</p>
       <img src={demoPic} alt="" />
+      
     </>
   )
 }
