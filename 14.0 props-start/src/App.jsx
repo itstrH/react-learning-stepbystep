@@ -27,7 +27,7 @@ function Header() {
   );
 }
 
-function MainContent({image, title, desc}) {
+function MainContent({ image, title, desc }) {
   return (
     <li>
       <img src={image} alt={title} />
@@ -51,6 +51,20 @@ function App() {
       <main>
         <section id="core-concepts">
           <h2>Khái niệm chính trong React</h2>
+          <ul>
+            <MainContent {...myData[0]} />
+            <MainContent {...myData[1]} />
+            <MainContent {...myData[2]} />
+            <MainContent {...myData[3]} />
+          </ul>
+
+          <ul>
+            <MainContent {...myData[0]} />
+            <MainContent {...myData[1]} />
+            <MainContent {...myData[2]} />
+            <MainContent {...myData[3]} />
+          </ul>
+
           <ul>
             <MainContent {...myData[0]} />
             <MainContent {...myData[1]} />
