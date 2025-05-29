@@ -1,20 +1,18 @@
-import { func } from "prop-types"
+export default function TabButton({ children , onSelect}) { 
 
-export default function TabButton({ children }) { 
-
-    // js
+    // using js 
     // const btn = document.querySelector("button");
     // btn.addEventListener("click", () => {
     //     // lam viec
     // })
     
-    function handleClick() {
-        alert("Button duoc click!");
-    }
+    // function handleClick() {
+    //     alert("Button was clicked!");
+    // }
 
     return (
         <li>
-            <button onClick={handleClick}>{children}</button>
+            <button onClick={onSelect}>{children}</button>
             {/* 2nd way */}
             {/* <button onClick={() => handleClick()}>{children}</button> */}
         </li>
@@ -22,7 +20,7 @@ export default function TabButton({ children }) {
 }
 
 
-//Second way: 
+//Second way : 
 // export default function TabButton({ batky }) {
 //     return (
 //         <li>
