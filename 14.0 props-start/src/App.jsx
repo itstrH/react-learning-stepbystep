@@ -4,7 +4,6 @@ import MainContent from "./components/MainContent/MainContent.jsx";
 import TabButton from "./components/TabButton.jsx";
 
 function App() {
-  console.log(myData);
   function handleSelect() {
       alert("Button was clicked!");
   }
