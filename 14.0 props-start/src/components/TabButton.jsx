@@ -20,11 +20,11 @@ export default function TabButton({ children , onSelect}) {
 }
 
 
-//Second way : 
-// export default function TabButton({ batky }) {
+// Second way : 
+// export default function TabButton({ batky, onSelect }) {
 //     return (
 //         <li>
-//             <button>{batky}</button>
+//             <button onClick={onSelect}>{batky}</button>
 //         </li>
 //     )
-// }
+// } 
