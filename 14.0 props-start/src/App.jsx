@@ -1,11 +1,14 @@
+import { useState } from "react";
 import { myData } from "../data.js";
 import Header from "./components/Header/Header.jsx";
 import MainContent from "./components/MainContent/MainContent.jsx";
 import TabButton from "./components/TabButton.jsx";
 
 function App() {
+  const [selectedTopic, setSelectedTopic] = useState('Select a button to change the content')
   function handleSelect(selectedButton) {
       alert(`${selectedButton} was clicked`);
+      setSelectedTopic(selectedButton);
   }
   return (
     <>
@@ -31,6 +34,7 @@ function App() {
             {/* second way */}
             {/* <TabButton batky="Components" /> */}
           </menu>
+          {selectedTopic}
         </section>
       </main>
     </>
