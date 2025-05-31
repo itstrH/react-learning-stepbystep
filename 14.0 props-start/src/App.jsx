@@ -6,6 +6,19 @@ import TabButton from "./components/TabButton.jsx";
 
 function App() {
   const [selectedTopic, setSelectedTopic] = useState();
+  // Cách 3: 
+  let tabContent = <p>Click vào nút để xem nội dung chủ đề.</p>;
+  if (selectedTopic) {
+    tabContent = (
+      <div id="tab-content">
+        <h3>{EXAMPLES[selectedTopic].title}</h3>
+        <p>{EXAMPLES[selectedTopic].desc}</p>
+        <pre>
+          <code>{EXAMPLES[selectedTopic].code}</code>
+        </pre>
+      </div>
+    );
+  }
   function handleSelect(selectedButton) {
     // alert(`${selectedButton} was clicked`);
     setSelectedTopic(selectedButton);
@@ -37,19 +50,35 @@ function App() {
             {/* <TabButton batky="Components" /> */}
           </menu>
           {/* {selectedTopic} */}
-          {!selectedTopic ?
-          (<p>Nhấn vào nút để xem nội dung.</p>)
-          :(
-          <div id="tab-content">
-            <h3>{EXAMPLES[selectedTopic].title}</h3>
-            <p>{EXAMPLES[selectedTopic].desc}</p>
-            <pre>
-              <code>{EXAMPLES[selectedTopic].code}</code>
-            </pre>
-          </div>
-          )}
+
+          {/* Cách 1: sử dụng toán tử 3 ngôi - ternary operator */}
+          {/* {!selectedTopic ? (
+            <p>Click vào nút để xem nội dung chủ đề.</p>
+          ) : (
+            <div id="tab-content">
+              <h3>{EXAMPLES[selectedTopic].title}</h3>
+              <p>{EXAMPLES[selectedTopic].desc}</p>
+              <pre>
+                <code>{EXAMPLES[selectedTopic].code}</code>
+              </pre>
+            </div>
+          )} */}
+
+          {/* Cách 2: sử dụng toán tử AND - && */}
+          {/* {!selectedTopic && <p>Click vào nút để xem nội dung chủ đề.</p>}
+          {selectedTopic && (
+            <div id="tab-content">
+              <h3>{EXAMPLES[selectedTopic].title}</h3>
+              <p>{EXAMPLES[selectedTopic].desc}</p>
+              <pre>
+                <code>{EXAMPLES[selectedTopic].code}</code>
+              </pre>
+            </div>
+          )} */}
         </section>
       </main>
+
+      {tabContent}
     </>
   );
 }
