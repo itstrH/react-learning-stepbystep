@@ -5,9 +5,7 @@ import MainContent from "./components/MainContent/MainContent.jsx";
 import TabButton from "./components/TabButton.jsx";
 
 function App() {
-  const [selectedTopic, setSelectedTopic] = useState(
-    "components"
-  );
+  const [selectedTopic, setSelectedTopic] = useState();
   function handleSelect(selectedButton) {
     // alert(`${selectedButton} was clicked`);
     setSelectedTopic(selectedButton);
@@ -39,15 +37,17 @@ function App() {
             {/* <TabButton batky="Components" /> */}
           </menu>
           {/* {selectedTopic} */}
+          {!selectedTopic ?
+          (<p>Nhấn vào nút để xem nội dung.</p>)
+          :(
           <div id="tab-content">
             <h3>{EXAMPLES[selectedTopic].title}</h3>
             <p>{EXAMPLES[selectedTopic].desc}</p>
             <pre>
-              <code>
-                {EXAMPLES[selectedTopic].code}
-              </code>
+              <code>{EXAMPLES[selectedTopic].code}</code>
             </pre>
           </div>
+          )}
         </section>
       </main>
     </>
