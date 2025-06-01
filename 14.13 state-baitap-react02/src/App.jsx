@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState } from "react";
 
 // Don't change the component name "App"
 export default function App() {
@@ -21,18 +21,26 @@ export default function App() {
 
   return (
     <>
-      {<button className="action-btn">Activate</button>}
+      {!isActivated && !isAlertVisible && (
+        <button className="action-btn" onClick={() => activateHandler()}>
+          Activate
+        </button>
+      )}
 
-      {
+      {isAlertVisible && (
         <div className="alert-box">
           <h2>Warning!</h2>
           <p>Are you sure you want to activate this mode?</p>
-          <button className="confirm-btn">Confirm</button>
-          <button className="cancel-btn">Cancel</button>
+          <button className="confirm-btn" onClick={() => confirmHandler()}>
+            Confirm
+          </button>
+          <button className="cancel-btn" onClick={() => cancelHandler()}>
+            Cancel
+          </button>
         </div>
-      }
+      )}
 
-      {<h3 className="success-message">Mode Activated!</h3>}
+      {isActivated && <h3 className="success-message">Mode Activated!</h3>}
     </>
   );
 }
