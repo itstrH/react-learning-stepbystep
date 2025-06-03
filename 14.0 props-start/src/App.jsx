@@ -5,6 +5,9 @@ import MainContent from "./components/MainContent/MainContent.jsx";
 import TabButton from "./components/TabButton.jsx";
 
 function App() {
+  const kq = myData.map((item) => ({...item}));
+  console.log(kq);
+
   const [selectedTopic, setSelectedTopic] = useState();
   // Cách 3:
   // let tabContent = <p>Click vào nút để xem nội dung chủ đề.</p>;
@@ -30,10 +33,13 @@ function App() {
         <section id="core-concepts">
           <h2>Khái niệm chính trong React</h2>
           <ul>
-            <MainContent {...myData[0]} />
+            {/* <MainContent {...myData[0]} />
             <MainContent {...myData[1]} />
             <MainContent {...myData[2]} />
-            <MainContent {...myData[3]} />
+            <MainContent {...myData[3]} /> */}
+            {myData.map((item) => (
+              <MainContent key={item.title} {...item} />
+            ))}
           </ul>
         </section>
 
