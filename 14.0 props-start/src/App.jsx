@@ -4,25 +4,26 @@ import Header from "./components/Header/Header.jsx";
 import MainContent from "./components/MainContent/MainContent.jsx";
 import TabButton from "./components/TabButton.jsx";
 import Section from "./components/MainContent/Section.jsx";
+import Tabs from "./components/MainContent/Tabs.jsx";
 
 function App() {
-  const kq = myData.map((item) => ({...item}));
+  const kq = myData.map((item) => ({ ...item }));
   console.log(kq);
 
   const [selectedTopic, setSelectedTopic] = useState();
   // Cách 3:
-  // let tabContent = <p>Click vào nút để xem nội dung chủ đề.</p>;
-  // if (selectedTopic) {
-  //   tabContent = (
-  //     <div id="tab-content">
-  //       <h3>{EXAMPLES[selectedTopic].title}</h3>
-  //       <p>{EXAMPLES[selectedTopic].desc}</p>
-  //       <pre>
-  //         <code>{EXAMPLES[selectedTopic].code}</code>
-  //       </pre>
-  //     </div>
-  //   );
-  // }
+  let tabContent = <p>Click vào nút để xem nội dung chủ đề.</p>;
+  if (selectedTopic) {
+    tabContent = (
+      <div id="tab-content">
+        <h3>{EXAMPLES[selectedTopic].title}</h3>
+        <p>{EXAMPLES[selectedTopic].desc}</p>
+        <pre>
+          <code>{EXAMPLES[selectedTopic].code}</code>
+        </pre>
+      </div>
+    );
+  }
   function handleSelect(selectedButton) {
     // alert(`${selectedButton} was clicked`);
     setSelectedTopic(selectedButton);
@@ -31,8 +32,7 @@ function App() {
     <>
       <Header />
       <main>
-        <section id="core-concepts">
-          <h2>Khái niệm chính trong React</h2>
+        <Section title="Khái niệm chính trong React" id="core-concepts">
           <ul>
             {/* <MainContent {...myData[0]} />
             <MainContent {...myData[1]} />
@@ -42,65 +42,70 @@ function App() {
               <MainContent key={item.title} {...item} />
             ))}
           </ul>
-        </section>
+        </Section>
 
-        <Section id="examples" title={"Examples"} className="democlass" moi="moi ">
-          <menu>
-            <TabButton
-              onClick={() => handleSelect("components")}
-              isSelected={selectedTopic === "components"}
-            >
-              Components
-            </TabButton>
-            <TabButton
-              isSelected={selectedTopic === "jsx"}
-              onClick={() => handleSelect("jsx")}
-            >
-              JSX
-            </TabButton>
-            <TabButton
-              isSelected={selectedTopic === "props"}
-              onClick={() => handleSelect("props")}
-            >
-              Props
-            </TabButton>
-            <TabButton
-              isSelected={selectedTopic === "state"}
-              onClick={() => handleSelect("state")}
-            >
-              State
-            </TabButton>
-            {/* second way */}
-            {/* <TabButton batky="Components" /> */}
-          </menu>
-          {/* {selectedTopic} */}
+        <Section
+          title="Examples"
+          id="examples"
+          className="democlass"
+          moi="moi "
+        >
+          <Tabs
+            button={
+              <>
+                <TabButton
+                  onClick={() => handleSelect("components")}
+                  isSelected={selectedTopic === "components"}
+                >
+                  Components
+                </TabButton>
+                <TabButton
+                  isSelected={selectedTopic === "jsx"}
+                  onClick={() => handleSelect("jsx")}
+                >
+                  JSX
+                </TabButton>
+                <TabButton
+                  isSelected={selectedTopic === "props"}
+                  onClick={() => handleSelect("props")}
+                >
+                  Props
+                </TabButton>
+                <TabButton
+                  isSelected={selectedTopic === "state"}
+                  onClick={() => handleSelect("state")}
+                >
+                  State
+                </TabButton>
+              </>
+            }
+          >
+            {/* Cách 1: sử dụng toán tử 3 ngôi - ternary operator */}
+            {/* {!selectedTopic ? (
+              <p>Click vào nút để xem nội dung chủ đề.</p>
+            ) : (
+              <div id="tab-content">
+                <h3>{EXAMPLES[selectedTopic].title}</h3>
+                <p>{EXAMPLES[selectedTopic].desc}</p>
+                <pre>
+                  <code>{EXAMPLES[selectedTopic].code}</code>
+                </pre>
+              </div>
+                )} */}
 
-          {/* Cách 1: sử dụng toán tử 3 ngôi - ternary operator */}
-          {/* {!selectedTopic ? (
-            <p>Click vào nút để xem nội dung chủ đề.</p>
-          ) : (
-            <div id="tab-content">
-              <h3>{EXAMPLES[selectedTopic].title}</h3>
-              <p>{EXAMPLES[selectedTopic].desc}</p>
-              <pre>
-                <code>{EXAMPLES[selectedTopic].code}</code>
-              </pre>
-            </div>
-          )} */}
-
-          {/* Cách 2: sử dụng toán tử AND - && */}
-          {!selectedTopic && <p>Click vào nút để xem nội dung chủ đề.</p>}
-          {selectedTopic && (
-            <div id="tab-content">
-              <h3>{EXAMPLES[selectedTopic].title}</h3>
-              <p>{EXAMPLES[selectedTopic].desc}</p>
-              <pre>
-                <code>{EXAMPLES[selectedTopic].code}</code>
-              </pre>
-            </div>
-          )}
-
-          {/* {tabContent} */}
+            {/* Cách 2: sử dụng toán tử AND - && */}
+            {/* {!selectedTopic && <p>Click vào nút để xem nội dung chủ đề.</p>}
+                {selectedTopic && (
+                <div id="tab-content">
+                  <h3>{EXAMPLES[selectedTopic].title}</h3>
+                  <p>{EXAMPLES[selectedTopic].desc}</p>
+                  <pre>
+                    <code>{EXAMPLES[selectedTopic].code}</code>
+                  </pre>
+                </div>
+              )} */}
+            {tabContent}
+          </Tabs>
         </Section>
       </main>
     </>
