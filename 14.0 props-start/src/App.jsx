@@ -44,29 +44,29 @@ function App() {
           </ul>
         </section>
 
-        <Section id="examples" title={"Examples"}>
+        <Section id="examples" title={"Examples"} className="democlass" moi="moi ">
           <menu>
             <TabButton
-              onSelect={() => handleSelect("components")}
+              onClick={() => handleSelect("components")}
               isSelected={selectedTopic === "components"}
             >
               Components
             </TabButton>
             <TabButton
               isSelected={selectedTopic === "jsx"}
-              onSelect={() => handleSelect("jsx")}
+              onClick={() => handleSelect("jsx")}
             >
               JSX
             </TabButton>
             <TabButton
               isSelected={selectedTopic === "props"}
-              onSelect={() => handleSelect("props")}
+              onClick={() => handleSelect("props")}
             >
               Props
             </TabButton>
             <TabButton
               isSelected={selectedTopic === "state"}
-              onSelect={() => handleSelect("state")}
+              onClick={() => handleSelect("state")}
             >
               State
             </TabButton>

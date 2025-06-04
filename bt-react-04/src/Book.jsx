@@ -2,7 +2,7 @@ import React from 'react'
 
 const Book = ({title}) => {
   return (
-    <li>{title}</li>
+    <li>{title} </li>
   )
 }
 
