@@ -3,6 +3,7 @@ import { myData, EXAMPLES } from "../data.js";
 import Header from "./components/Header/Header.jsx";
 import MainContent from "./components/MainContent/MainContent.jsx";
 import TabButton from "./components/TabButton.jsx";
+import Section from "./components/MainContent/Section.jsx";
 
 function App() {
   const kq = myData.map((item) => ({...item}));
@@ -43,8 +44,7 @@ function App() {
           </ul>
         </section>
 
-        <section id="examples">
-          <h2>Example</h2>
+        <Section id="examples" title={"Examples"}>
           <menu>
             <TabButton
               onSelect={() => handleSelect("components")}
@@ -101,7 +101,7 @@ function App() {
           )}
 
           {/* {tabContent} */}
-        </section>
+        </Section>
       </main>
     </>
   );
