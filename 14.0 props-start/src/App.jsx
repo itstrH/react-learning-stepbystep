@@ -51,6 +51,7 @@ function App() {
           moi="moi "
         >
           <Tabs
+            ButtonsContainer="menu"
             button={
               <>
                 <TabButton
